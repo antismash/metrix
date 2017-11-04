@@ -37,7 +37,8 @@ def main():
 
     start_http_server(args.port)
     # TODO: This works for real Redis, but not for mockredis
-    db_conn = Redis.from_url(args.redis_uri, charset="utf-8", decode_responses=True)
+    # db_conn = Redis.from_url(args.redis_uri, charset="utf-8", decode_responses=True)
+    db_conn = Redis.from_url(args.redis_uri)
     while True:
         gather_metrics(db_conn)
         time.sleep(args.interval)
