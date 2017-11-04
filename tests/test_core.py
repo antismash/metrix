@@ -18,6 +18,6 @@ def test_get_oldest_job_ts(db):
     db.lpush('jobs:queued', 'fakejob')
     db.hset('job:fakejob', 'added', strtime)
 
-    timestamp = core.get_oldest_job_ts(db)
+    timestamp = core.get_job_ts(db, -1)
 
     assert timestamp == expected.timestamp()
