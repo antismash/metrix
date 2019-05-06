@@ -2,7 +2,7 @@
 import argparse
 from envparse import Env
 from metrix import __version__
-from .core import gather_metrics
+from .core import build_gauges, gather_metrics
 from prometheus_client import start_http_server
 from redis import Redis
 import time
@@ -39,8 +39,9 @@ def main():
     # TODO: This works for real Redis, but not for mockredis
     # db_conn = Redis.from_url(args.redis_uri, charset="utf-8", decode_responses=True)
     db_conn = Redis.from_url(args.redis_uri)
+    gauges = build_gauges()
     while True:
-        gather_metrics(db_conn)
+        gather_metrics(db_conn, gauges)
         time.sleep(args.interval)
 
 
