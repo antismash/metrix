@@ -10,6 +10,8 @@ QUEUES = [
     'jobs:queued-fungi',
     'jobs:development-fungi',
     'jobs:legacy-fungi',
+    'jobs:minimal',
+    'jobs:running',
 ]
 
 
