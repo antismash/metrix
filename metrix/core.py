@@ -6,6 +6,7 @@ from typing import List
 QUEUES = [
     'jobs:queued',
     'jobs:development',
+    'jobs:downloads',
     'jobs:legacy',
     'jobs:queued-fungi',
     'jobs:development-fungi',
